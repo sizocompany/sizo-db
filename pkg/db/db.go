@@ -123,7 +123,7 @@ func (dbc Config) GetVersion() int {
 
 func (dbc Config) GetMetadata() (Metadata, error) {
 	var metadata Metadata
-	value, err := Config{}.get("sizo", "metadata", "data")
+	value, err := Config{}.get("trivy", "metadata", "data")
 	if err != nil {
 		return Metadata{}, err
 	}
@@ -134,7 +134,7 @@ func (dbc Config) GetMetadata() (Metadata, error) {
 }
 
 func (dbc Config) SetMetadata(metadata Metadata) error {
-	err := dbc.update("sizo", "metadata", "data", metadata)
+	err := dbc.update("trivy", "metadata", "data", metadata)
 	if err != nil {
 		return xerrors.Errorf("failed to save metadata: %w", err)
 	}
